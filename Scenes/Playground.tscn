@@ -24,11 +24,11 @@ offset_bottom = 6576.0
 color = Color(0.187293, 0.200327, 0.209004, 1)
 
 [node name="Camera" type="Camera2D" parent="."]
-position = Vector2(-7670, -4623)
+position = Vector2(-569, -383)
 script = ExtResource("1_wwhll")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(3520, 1908)
+position = Vector2(-726, -276)
 scale = Vector2(68.7656, 39.0938)
 texture = ExtResource("1_yfcqi")
 

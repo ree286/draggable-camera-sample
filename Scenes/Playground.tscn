@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2b4lslcn8gwl"]
+
+[ext_resource type="Script" path="res://Scenes/Camera.gd" id="1_wwhll"]
+[ext_resource type="Texture2D" uid="uid://vidneqpardo5" path="res://icon.svg" id="1_yfcqi"]
+[ext_resource type="Script" path="res://Scenes/Area.gd" id="3_4iasj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fmffe"]
+radius = 43.1741
+
+[node name="Playground" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BasicColor" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -7670.0
+offset_top = -4623.0
+offset_right = 10812.0
+offset_bottom = 6576.0
+color = Color(0.187293, 0.200327, 0.209004, 1)
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(-7670, -4623)
+script = ExtResource("1_wwhll")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(3520, 1908)
+scale = Vector2(68.7656, 39.0938)
+texture = ExtResource("1_yfcqi")
+
+[node name="Actors" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Actors"]
+position = Vector2(-669, -490)
+texture = ExtResource("1_yfcqi")
+
+[node name="Area2D" type="Area2D" parent="Actors/Sprite2D"]
+script = ExtResource("3_4iasj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actors/Sprite2D/Area2D"]
+shape = SubResource("CircleShape2D_fmffe")
+
+[connection signal="input_event" from="Actors/Sprite2D/Area2D" to="Actors/Sprite2D/Area2D" method="_on_input_event"]
